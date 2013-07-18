@@ -53,10 +53,16 @@ prelude <<< Num{
 
 prelude <<< do
 
+  reverse: (input) ->
+    switch typeof! input
+    | \Array  => List.reverse ...
+    | \String =>  Str.reverse ...
+
   empty: (input) ->
     switch typeof! input
     | \Array  => List.empty ...
     | \Object =>  Obj.empty ...
+    | \String =>  Str.empty ...
 
   each: (f, input) -->
     switch typeof! input
@@ -92,10 +98,6 @@ prelude <<< do
     switch typeof! input
     | \Array  => List.find ...
     | \Object =>  Obj.find ...
-
-
-
-
 
 prelude.VERSION = '1.0.1'
 
