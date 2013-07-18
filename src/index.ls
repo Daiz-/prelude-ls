@@ -24,9 +24,7 @@ prelude = {
   replicate,
 }
 prelude <<< List{
-  each, map, filter, compact, reject, partition, find,
-  head, first, tail, last, initial, empty,
-  reverse, difference, intersection, union, count-by, group-by,
+  head, first, tail, last, initial, difference, intersection, union, count-by, group-by,
   fold, foldl, fold1, foldl1, foldr, foldr1, unfoldr, and-list, or-list,
   any, all, unique, sort, sort-with, sort-by, sum, product, mean, average,
   concat, concat-map, flatten,
@@ -51,7 +49,7 @@ prelude <<< Num{
   truncate, round, ceiling, floor, is-it-NaN, even, odd, gcd, lcm,
 }
 
-prelude <<< do
+prelude <<< {
 
   reverse: (input) ->
     switch typeof! input
@@ -98,6 +96,8 @@ prelude <<< do
     switch typeof! input
     | \Array  => List.find ...
     | \Object =>  Obj.find ...
+
+}
 
 prelude.VERSION = '1.0.1'
 
